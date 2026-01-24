@@ -15,9 +15,5 @@
         public int positionId { get; set; }
 
         public float salary { get; set; }
-
-
-
-
     }
 }
