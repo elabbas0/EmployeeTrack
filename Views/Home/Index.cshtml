@@ -2,7 +2,12 @@
     ViewData["Title"] = "Track";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <li>Hello @User.Identity.Name!</li>
+    <a asp-controller="Account" asp-action="Logout">Logout</a>
+}
+else
+{
+    <li><a asp-controller="Account" asp-action="Login">Login</a></li>
+}
