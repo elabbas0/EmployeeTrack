@@ -10,7 +10,20 @@
     <link rel="stylesheet" href="~/EmployeeTrack.styles.css" asp-append-version="true" />
 </head>
 <body>
-    
+    <header>
+        <nav class="navbar">
+            
+
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <p class="navbar-text">@User.Identity.Name</p>
+            }
+            else
+            {
+                <a asp-controller="Account" asp-action="Login" class="navbutton">Dashboard</a>
+            }
+        </nav>
+    </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

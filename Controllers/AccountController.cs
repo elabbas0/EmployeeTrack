@@ -26,7 +26,7 @@ public class AccountController : Controller
                 CookieAuthenticationDefaults.AuthenticationScheme,
                 new ClaimsPrincipal(claimsIdentity));
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Dashboard", "Account");
         }
 
         ViewBag.Message = "Invalid login";
@@ -42,6 +42,10 @@ public class AccountController : Controller
 
     public IActionResult AccessDenied()
     {
+        return View();
+    }
+
+    public IActionResult Dashboard() { 
         return View();
     }
 }

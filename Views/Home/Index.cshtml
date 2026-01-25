@@ -2,12 +2,7 @@
     ViewData["Title"] = "Track";
 }
 
-@if (User.Identity?.IsAuthenticated == true)
-{
-    <li>Hello @User.Identity.Name!</li>
-    <a asp-controller="Account" asp-action="Logout">Logout</a>
-}
-else
-{
-    <li><a asp-controller="Account" asp-action="Login">Login</a></li>
-}
+<div style="margin-top:40px;"class="d-flex flex-column justify-content-center align-items-center vh-35 text-center">
+    <h1>Welcome to employee tracker</h1>
+    <p style="opacity:0.2">made by elabbas</p>
+</div>
