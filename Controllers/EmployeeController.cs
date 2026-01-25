@@ -14,7 +14,7 @@ namespace EmployeeTrack.Controllers
         }
 
         [HttpPost]
-        public int Create(Employee emp)
+        public int Create(Employee emp, string categoryName, string position) //TODO append to other tables also
         {
             _db.Employees.Add(emp);
             _db.SaveChanges();       // save
