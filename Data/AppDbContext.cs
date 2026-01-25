@@ -9,5 +9,6 @@ namespace EmployeeTrack.Data
         }
 
         public DbSet<Visit> Visits { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }
