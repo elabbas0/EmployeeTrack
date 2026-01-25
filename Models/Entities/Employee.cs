@@ -4,16 +4,16 @@
     {
         public int Id { get; set; }
 
-        public string firstName { get; set; } = string.Empty;
-        public string lastName { get; set; } = string.Empty;
-        public string fatherName { get; set; } = string.Empty;
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public string FatherName { get; set; } = string.Empty;
 
-        public DateOnly startTime { get; set; }
-        public DateOnly? endTime { get; set; }
+        public DateOnly StartDate { get; set; }
+        public DateOnly? StopDate { get; set; }
 
-        public string position { get; set; } = string.Empty;
-        public int positionId { get; set; }
+        public decimal Salary { get; set; }
 
-        public float salary { get; set; }
+        public int PositionId { get; set; }
+        public virtual Position? Position { get; set; }
     }
 }

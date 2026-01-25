@@ -1,6 +1,12 @@
-﻿namespace EmployeeTrack.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace EmployeeTrack.Controllers
 {
-    public class DashboardController
+    public class DashboardController : Controller
     {
+        public IActionResult Index()
+        {
+            return View();
+        }
     }
 }
