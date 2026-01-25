@@ -45,7 +45,9 @@ public class AccountController : Controller
         return View();
     }
 
-    public IActionResult Dashboard() { 
+    public IActionResult Dashboard(string activeView)
+    {
+        ViewBag.ActiveView = activeView;
         return View();
     }
 }
