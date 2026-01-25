@@ -29,3 +29,41 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+
+
+.navbar {
+    background-color:transparent;
+    backdrop-filter: blur(10px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+}
+
+.navbutton {
+    background: linear-gradient(45deg, #00008b, #0000ff);
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.4);
+    padding: 6px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+    .navbutton:hover {
+        box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); 
+        transform: translateY(-2px); 
+        color: white !important;
+        filter: brightness(1.2);
+    }
+
+.navbar-text {
+    color: black !important;
+    font-weight: bold;
+    margin-right: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
