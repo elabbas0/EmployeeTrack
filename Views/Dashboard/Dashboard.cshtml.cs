@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace EmployeeTrack.Views.Account
+namespace EmployeeTrack.Views.Dashboard
 {
     public class DashboardModel : PageModel
     {

@@ -4,27 +4,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeTrack.Controllers
 {
-    public class EmployeeController : Controller
+    public class EmployeeController(AppDbContext db) : Controller
     {
-        private readonly AppDbContext _db;
-
-        public EmployeeController(AppDbContext db)
-        {
-            _db = db;
-        }
+        private readonly AppDbContext _db = db;
 
         [HttpPost]
-        public int Create(Employee emp, string categoryName, string position) //TODO append to other tables also
+        public int Create(Employee emp, string categoryName, string position) 
         {
             _db.Employees.Add(emp);
-            _db.SaveChanges();       // save
+            _db.SaveChanges();
 
-            if (emp.Id == 0)
-            {
+            if (emp.Id == 0) 
                 throw new Exception("Failed to create employee.");
-            } 
 
-            return emp.Id; //return the employee id.
+            return emp.Id;
         }
         public Employee? GetById(int id)
         {
@@ -41,7 +34,7 @@ namespace EmployeeTrack.Controllers
         public Employee? GetByName(string name)
         {
 
-            var find = _db.Employees.FirstOrDefault(e => e.firstName == name);
+            var find = _db.Employees.FirstOrDefault(e => e.FirstName == name);
 
             if (find is Employee emp)
             {
@@ -68,13 +61,13 @@ namespace EmployeeTrack.Controllers
                 return NotFound($"Employee with ID {id} not found.");
             }
 
-                return Ok($"Employee {emp?.firstName} deleted successfully.");
+                return Ok($"Employee {emp?.FirstName} deleted successfully.");
         }
 
         [HttpPost]
         public IActionResult DeleteByName(string name) 
         {
-            var find = _db.Employees.FirstOrDefault(e => e.firstName == name);
+            var find = _db.Employees.FirstOrDefault(e => e.FirstName == name);
 
             if (find is Employee emp)
             {

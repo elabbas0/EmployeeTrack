@@ -3,15 +3,17 @@
     public class Visit
     {   
         public int Id { get; set; }
-        public int employeeId { get; set; }
-        public Employee? employee { get; set; }
+        
+        public DateOnly StartDate { get; set; }
+        public DateOnly? EndDate { get; set; }
 
-        public int countryId { get; set; }
-        public Country? country { get; set; }
+        public int EmployeeId { get; set; }
+        public virtual Employee? Employee { get; set; }
 
-        public Category? category { get; set; }
+        public int CountryId { get; set; }
+        public virtual Country? Country { get; set; }
 
-        public DateOnly startDate { get; set; }
-        public DateOnly? endDate { get; set; }
+        public int CategoryId { get; set; }
+        public virtual Category? Category { get; set; }
     }
 }

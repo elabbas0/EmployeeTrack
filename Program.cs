@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Account/Login"; // redirect to login page if not authenticated
+        options.LoginPath = "/Account/Login";
     });
 
 builder.Services.AddDbContext<AppDbContext>(options =>

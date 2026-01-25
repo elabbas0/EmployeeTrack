@@ -3,6 +3,8 @@
     public class Position
     {
         public int Id { get; set; }
-        public string name { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+
+        public virtual IEnumerable<Employee>? Employees { get; set; }
     }
 }

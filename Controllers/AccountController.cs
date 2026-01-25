@@ -3,51 +3,42 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-public class AccountController : Controller
+namespace EmployeeTrack.Controllers
 {
-    public IActionResult Login()
+    public class AccountController : Controller
     {
-        return View();
-    } // show login page
-
-    [HttpPost]
-    public async Task<IActionResult> Login(string username, string password)
-    {
-        if (username == "rehim" && password == "coolboy") // simple hardcoded check
+        public IActionResult Login()
         {
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, username)
-            }; // create user claims 
-
-            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme); //store claims in identity
-
-            await HttpContext.SignInAsync(
-                CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(claimsIdentity));
-
-            return RedirectToAction("Dashboard", "Account");
+            return View();
         }
 
-        ViewBag.Message = "Invalid login";
-        return View();
-    }
+        [HttpPost]
+        public async Task<IActionResult> Login(string username, string password)
+        {
+            if (username == "rehim" && password == "coolboy")
+            {
+                var claims = new List<Claim>
+            {
+                new(ClaimTypes.Name, username)
+            };
 
-    //logout 
-    public async Task<IActionResult> Logout()
-    {
-        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-        return RedirectToAction("Login");
-    }
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-    public IActionResult AccessDenied()
-    {
-        return View();
-    }
+                await HttpContext.SignInAsync(
+                    CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(claimsIdentity));
 
-    public IActionResult Dashboard(string activeView)
-    {
-        ViewBag.ActiveView = activeView;
-        return View();
+                return RedirectToAction("Dashboard", "Account");
+            }
+
+            ViewBag.Message = "Invalid login";
+            return View();
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login");
+        }
     }
 }
