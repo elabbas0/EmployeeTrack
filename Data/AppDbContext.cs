@@ -10,5 +10,13 @@ namespace EmployeeTrack.Data
 
         public DbSet<Visit> Visits { get; set; }
         public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<Country> Countries { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Position> Positions { get; set; }
+
+
     }
 }
