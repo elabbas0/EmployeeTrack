@@ -67,3 +67,49 @@ body {
     letter-spacing: 1px;
     font-size: 0.9rem;
 }
+
+.dashboard-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.dash-card {
+    background: black;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: transform 0.3s ease;
+}
+
+    .dash-card h1 {
+        color: #fff;
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+
+.dash-btn {
+    display: block;
+    width: 100%;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 20px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    text-align: left;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+    .dash-btn:hover {
+        background: linear-gradient(45deg, #00008b, #0000ff);
+        color: white;
+        box-shadow: 0 0 15px rgba(0, 0, 255, 0.6);
+        border-color: transparent;
+    }
