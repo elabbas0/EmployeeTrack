@@ -14,6 +14,7 @@ namespace EmployeeTrack.Controllers
         {
             var model = await _context.Employees
                 .Include(e => e.Position)
+                .Include(e => e.Country)
                 .ToListAsync();
             return View(model);
         }

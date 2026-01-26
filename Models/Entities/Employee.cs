@@ -13,7 +13,9 @@
 
         public decimal Salary { get; set; }
 
-        public int PositionId { get; set; }
+        public int? PositionId { get; set; }
         public virtual Position? Position { get; set; }
+        public int? CountryId { get; set; }
+        public virtual Country? Country { get; set; }
     }
 }
