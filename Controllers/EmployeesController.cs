@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeTrack.Controllers
 {
-    public class Employees1Controller(AppDbContext context) : Controller
+    public class EmployeesController(AppDbContext context) : Controller
     {
         private readonly AppDbContext _context = context;
 

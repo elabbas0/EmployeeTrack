@@ -28,7 +28,7 @@ namespace EmployeeTrack.Controllers
                     CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity));
 
-                return RedirectToAction("Dashboard", "Account");
+                return RedirectToAction("Dashboard", "Dashboard");
             }
 
             ViewBag.Message = "Invalid login";

@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace EmployeeTrack.Views.Account
+namespace EmployeeTrack.Views.Employees
 {
-    public class _NewVisitModel : PageModel
+    public class CreateModel : PageModel
     {
         public void OnGet()
         {

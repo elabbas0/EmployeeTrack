@@ -4,45 +4,14 @@
     string active = ViewBag.ActiveView ?? "Home";
 }
 
-<div class="dashboard-container">
-    @if (active == "Home")
-    {
-        <div class="d-flex flex-row justify-content-center align-items-center" style="gap:30px;">
-            <div class="dash-card">
-                <h1>Manage Employees</h1>
-                <a asp-action="Dashboard" asp-route-activeView="ListEmployees" class="dash-btn">List Employees</a>
-                <a asp-action="Dashboard" asp-route-activeView="NewEmployee" class="dash-btn">New Employee</a>
-                <a asp-action="Dashboard" asp-route-activeView="DeleteEmployee" class="dash-btn">Delete Employee</a>
-            </div>
+<div class="dashboard-container" style="gap:40px;">
+   <div class="dash-card">
+       <h1> Manage Employees</h1>
+		<a href="/Employees/Index" class="btn btn-primary">List Employees</a>
+   </div>
 
-            <div class="dash-card">
-                <h1>Manage Visits</h1>
-                <a asp-action="Dashboard" asp-route-activeView="ListVisits" class="dash-btn">List Visits</a>
-                <a asp-action="Dashboard" asp-route-activeView="NewVisit" class="dash-btn">New Visit</a>
-                <a asp-action="Dashboard" asp-route-activeView="DeleteVisit" class="dash-btn">Delete Visit</a>
-            </div>
-        </div>
-    }
-    else
-    {
-        <div class="dash-card w-75">
-            <a asp-action="Dashboard" asp-route-activeView="Home" class="mb-4 d-inline-block text-info btn btn-primary">Back to Menu</a>
+    <div class="dash-card">
+        <h1> Manage Visits</h1>
 
-            @switch (active)
-            {
-                case "NewEmployee":
-                    @await Html.PartialAsync("_NewEmployee", new Employee())
-                    break;
-                case "ListEmployees":
-                    @await Html.PartialAsync("_EmployeeList")
-                    break;
-                case "NewVisit":
-                    @await Html.PartialAsync("_NewVisit")
-                    break;
-                default:
-                    <p>TODO </p>
-                    break;
-            }
-        </div>
-    }
+    </div>
 </div>
