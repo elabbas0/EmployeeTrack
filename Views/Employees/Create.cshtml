@@ -67,6 +67,7 @@
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     <!-- Employment Details Section -->
                     <div class="form-section">
                         <h5>Employment Details</h5>
@@ -119,6 +120,26 @@
                         </button>
                     </div>
                 </form>
+=======
+            <div class="form-group mb-3">
+                <label asp-for="PositionId" class="form-label">Position</label>
+                <select asp-for="PositionId" class="form-control" asp-items="ViewBag.PositionId">
+                    <option value="">-- Select Position --</option>
+                </select>
+                <span asp-validation-for="PositionId" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="CountryId" class="form-label">Country</label>
+                <select asp-for="CountryId" class="form-control" asp-items="ViewBag.CountryId">
+                    <option value="">-- Select Country --</option>
+                </select>
+                <span asp-validation-for="CountryId" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="StartDate" class="form-label"></label>
+                <input asp-for="StartDate" class="form-control" type="date" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+>>>>>>> 9d8db6c58a43ab538732866f46d758c10c3ca2c4
             </div>
         </div>
     </div>

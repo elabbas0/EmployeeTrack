@@ -12,11 +12,19 @@ namespace EmployeeTrack.Controllers
 
         public IActionResult Index()
         {
+<<<<<<< HEAD
             ViewBag.Positions = _context.Positions
                 .Select(p => new { p.Id, p.Name })
                 .ToList();
 
             return View();
+=======
+            var model = await _context.Employees
+                .Include(e => e.Position)
+                .Include(e => e.Country)
+                .ToListAsync();
+            return View(model);
+>>>>>>> 9d8db6c58a43ab538732866f46d758c10c3ca2c4
         }
 
         // DATATABLES LOAD ENDPOINT

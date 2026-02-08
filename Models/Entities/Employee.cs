@@ -15,9 +15,14 @@ namespace EmployeeTrack.Models.Entities
 
         public decimal Salary { get; set; }
 
-        public int PositionId { get; set; }
+        public int? PositionId { get; set; }
         public virtual Position? Position { get; set; }
+<<<<<<< HEAD
 
         public virtual Visit? Visit { get; set; }
+=======
+        public int? CountryId { get; set; }
+        public virtual Country? Country { get; set; }
+>>>>>>> 9d8db6c58a43ab538732866f46d758c10c3ca2c4
     }
 }

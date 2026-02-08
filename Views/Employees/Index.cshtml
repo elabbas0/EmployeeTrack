@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
 
+<<<<<<< HEAD
 <style>
     .flatpickr-calendar {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -159,6 +160,29 @@
             const b = fp.selectedDates[1] || a;
             const format = d => d.toISOString().split('T')[0];
             return { start: format(a), end: format(b) };
+=======
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full name</th>
+            <th>Position</th>
+            <th>Nationality</th>
+            <th>Start date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.FirstName @employee.LastName</td>
+                <td>@employee.Position?.Name</td>
+                <td>@employee.StartDate.ToShortDateString()</td>
+                <td>@employee.Country?.Name</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@employee.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+>>>>>>> 9d8db6c58a43ab538732866f46d758c10c3ca2c4
         }
 
         function getFilters() {
