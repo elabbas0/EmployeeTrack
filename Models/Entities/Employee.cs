@@ -1,6 +1,8 @@
-﻿namespace EmployeeTrack.Models.Entities
+﻿using EmployeeTrack.Models.Common;
+
+namespace EmployeeTrack.Models.Entities
 {
-    public class Employee
+    public class Employee : BaseEntity
     {
         public int Id { get; set; }
 
@@ -15,5 +17,7 @@
 
         public int PositionId { get; set; }
         public virtual Position? Position { get; set; }
+
+        public virtual Visit? Visit { get; set; }
     }
 }

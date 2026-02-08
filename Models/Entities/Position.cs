@@ -1,6 +1,8 @@
-﻿namespace EmployeeTrack.Models.Entities
+﻿using EmployeeTrack.Models.Common;
+
+namespace EmployeeTrack.Models.Entities
 {
-    public class Position
+    public class Position : BaseEntity
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;

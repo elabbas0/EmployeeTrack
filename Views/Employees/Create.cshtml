@@ -2,47 +2,125 @@
 
 @{
     ViewData["Title"] = "Create Employee";
+    Layout = "_DashboardLayout";
 }
 
-<h2>Create Employee</h2>
+<style>
+    .form-section {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
 
-<hr />
+        .form-section h5 {
+            color: #495057;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+    .required-field::after {
+        content: " *";
+        color: #dc3545;
+    }
+</style>
+
 <div class="row">
-    <div class="col-md-6">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <div class="form-group mb-3">
-                <label asp-for="FirstName" class="form-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
+    <div class="col-lg-8 mx-auto">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-plus-fill me-2" viewBox="0 0 16 16">
+                        <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5" />
+                    </svg>
+                    Create New Employee
+                </h4>
             </div>
+            <div class="card-body">
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
 
-            <div class="form-group mb-3">
-                <label asp-for="LastName" class="form-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
+                    <!-- Personal Information Section -->
+                    <div class="form-section">
+                        <h5>Personal Information</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="FirstName" class="form-label required-field">First Name</label>
+                                <input asp-for="FirstName" class="form-control" placeholder="Enter first name" />
+                                <span asp-validation-for="FirstName" class="text-danger small"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="LastName" class="form-label required-field">Last Name</label>
+                                <input asp-for="LastName" class="form-control" placeholder="Enter last name" />
+                                <span asp-validation-for="LastName" class="text-danger small"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="FatherName" class="form-label required-field">Father's Name</label>
+                                <input asp-for="FatherName" class="form-control" placeholder="Enter father's name" />
+                                <span asp-validation-for="FatherName" class="text-danger small"></span>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="PositionId" class="form-label">Position</label>
-                <select asp-for="PositionId" class="form-control" asp-items="ViewBag.PositionId">
-                    <option value="">-- Select Position --</option>
-                </select>
-                <span asp-validation-for="PositionId" class="text-danger"></span>
-            </div>
+                    <!-- Employment Details Section -->
+                    <div class="form-section">
+                        <h5>Employment Details</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="PositionId" class="form-label required-field">Position</label>
+                                <select asp-for="PositionId" class="form-select" asp-items="ViewBag.PositionId">
+                                    <option value="">-- Select Position --</option>
+                                </select>
+                                <span asp-validation-for="PositionId" class="text-danger small"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Salary" class="form-label required-field">Salary</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input asp-for="Salary" class="form-control" placeholder="0.00" step="0.01" />
+                                </div>
+                                <span asp-validation-for="Salary" class="text-danger small"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="StartDate" class="form-label required-field">Start Date</label>
+                                <input asp-for="StartDate" type="date" class="form-control" />
+                                <span asp-validation-for="StartDate" class="text-danger small"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="StopDate" class="form-label">Stop Date</label>
+                                <input asp-for="StopDate" type="date" class="form-control" />
+                                <span asp-validation-for="StopDate" class="text-danger small"></span>
+                                <small class="form-text text-muted">Leave empty if currently employed</small>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="StartDate" class="form-label"></label>
-                <input asp-for="StartDate" class="form-control" type="date" />
-                <span asp-validation-for="StartDate" class="text-danger"></span>
+                    <!-- Action Buttons -->
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left me-1" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                            </svg>
+                            Back to List
+                        </a>
+                        <button type="submit" class="btn btn-success btn-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-circle me-2" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
+                            </svg>
+                            Create Employee
+                        </button>
+                    </div>
+                </form>
             </div>
-
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Create</button>
-                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 

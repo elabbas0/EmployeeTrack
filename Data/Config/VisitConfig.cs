@@ -33,6 +33,12 @@ namespace EmployeeTrack.Data.Config
                .HasForeignKey(e => e.CategoryId)
                .OnDelete(DeleteBehavior.Restrict)
                .IsRequired();
+
+            builder.HasOne(e => e.Reason)
+               .WithMany()
+               .HasForeignKey(e => e.ReasonId)
+               .OnDelete(DeleteBehavior.Restrict)
+               .IsRequired(false);
         }
     }
 }
